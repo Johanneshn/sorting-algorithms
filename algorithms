@@ -1,0 +1,26 @@
+import numpy as np
+
+#Sorting algorithms
+
+def main():
+    randomArr = np.random.randint(10,size=10)
+    bubble_sort(randomArr);
+
+def bubble_sort(arr):
+    print("# Bubbel sort \n# Unsorted array: ")
+    print(arr)
+
+    n = len(arr)-1
+    for j in range(n,0,-1):
+        for i in range(j):
+            if arr[i]>arr[i+1]:
+             arr[i], arr[i+1] = arr[i+1], arr[i]
+
+    print("# Sorted array: ")
+    print(arr)
+
+
+    return arr
+
+if __name__ == "__main__":
+    main()
