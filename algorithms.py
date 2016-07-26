@@ -4,26 +4,29 @@ import timeit
 #Sorting algorithms
 
 def main():
-    randomArr = np.random.randint(10,size=10)
+    randomArr = np.random.randint(10000,size=100)
     insertion_sort(randomArr)
-    print timeit.timeit("insertion_sort", setup="from __main__ import insertion_sort", number=1)
+    bubble_sort(randomArr)
+
 
 def bubble_sort(arr):
-    print("# Bubbel sort \n# Unsorted array: ")
-    print(arr)
 
+    start_time = timeit.default_timer()
     n = len(arr)-1
     for j in range(n,0,-1):
         for i in range(j):
             if arr[i]>arr[i+1]:
              arr[i], arr[i+1] = arr[i+1], arr[i]
 
-    print("# Sorted array: ")
-    print(arr)
+    elapsed = timeit.default_timer() - start_time
+    print(elapsed)
+
+
 
 
 def insertion_sort(arr):
 
+    start_time = timeit.default_timer()
     n = len(arr)-1
     for j in range(1,n,1):
         x = j
@@ -31,8 +34,10 @@ def insertion_sort(arr):
             arr[x],arr[x-1] = arr[x-1],arr[x]
             x = x-1
 
-    print("# Sorted array: ")
-    print(arr)
+    elapsed = timeit.default_timer() - start_time
+
+    print(elapsed)
+
 
 
 if __name__ == "__main__":
